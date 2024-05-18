@@ -64,6 +64,7 @@ def test():
 
 @app.route('/sche', methods = ['POST'])
 def sche():
+	starttime = datetime.utcnow().timestamp()
 	body = request.get_json()
 	userID = body['userRequest']['user']['id']
 	scheN = 0
@@ -224,6 +225,9 @@ def sche():
 		}
 	}
 
+	endtime = datetime.utcnow().timestamp()
+	loadingtime = endtime - starttime
+	print(str(loadingtime) + "s 소요")
 	return responseBody
 				
 			
@@ -232,6 +236,7 @@ def sche():
 
 @app.route('/agree1', methods = ['POST'])
 def agree1():
+	starttime = datetime.utcnow().timestamp()
 	responesebody = {
   "version": "2.0",
   "template": {
@@ -253,10 +258,14 @@ def agree1():
 	]
   }
 }
+	endtime = datetime.utcnow().timestamp()
+	loadingtime = endtime - starttime
+	print(str(loadingtime) + "s 소요")
 	return responesebody
 
 @app.route('/agree2', methods = ['POST'])
 def agree2():
+	starttime = datetime.utcnow().timestamp()
 	body = request.get_json()
 	userID = body['userRequest']['user']['id']
 	
@@ -309,10 +318,14 @@ def agree2():
 					]
 	}
 }
+	endtime = datetime.utcnow().timestamp()
+	loadingtime = endtime - starttime
+	print(str(loadingtime) + "s 소요")
 	return responesebody
 
 @app.route('/school', methods = ['POST'])
 def school():
+	starttime = datetime.utcnow().timestamp()
 	body = request.get_json()
 	userschool = body['userRequest']['utterance']
 	userID = body['userRequest']['user']['id']
@@ -363,11 +376,15 @@ def school():
 	]
   }
 }
+	endtime = datetime.utcnow().timestamp()
+	loadingtime = endtime - starttime
+	print(str(loadingtime) + "s 소요")
 	return responesebody
 	return useridtable
 
 @app.route('/grade', methods = ['POST'])
 def grade():
+	starttime = datetime.utcnow().timestamp()
 	body = request.get_json()
 	usergrade = body['userRequest']['utterance']
 	userID = body['userRequest']['user']['id']
@@ -456,10 +473,14 @@ def grade():
 	]
   }
 }
+	endtime = datetime.utcnow().timestamp()
+	loadingtime = endtime - starttime
+	print(str(loadingtime) + "s 소요")
 	return responesebody
 
 @app.route('/class1', methods = ['POST'])
 def class1():
+	starttime = datetime.utcnow().timestamp()
 	body = request.get_json()
 	userclass = body['userRequest']['utterance']
 	userID = body['userRequest']['user']['id']
@@ -566,11 +587,14 @@ def class1():
   }
 }
 	
-	
+	endtime = datetime.utcnow().timestamp()
+	loadingtime = endtime - starttime
+	print(str(loadingtime) + "s 소요")
 	return responesebody
 
 @app.route('/check', methods = ['POST'])
 def check():
+	starttime = datetime.utcnow().timestamp()
 	responesebody = {
   "version": "2.0",
   "template": {
@@ -596,11 +620,15 @@ def check():
 	]
   }
 }
+	endtime = datetime.utcnow().timestamp()
+	loadingtime = endtime - starttime
+	print(str(loadingtime) + "s 소요")
 	return responesebody
 
 
 @app.route('/timetable', methods = ["POST"])
 def timetable():
+	starttime = datetime.utcnow().timestamp()
 	descr = ""
 	timetablelist = []
 	body = request.get_json()
@@ -886,11 +914,14 @@ def timetable():
 						]
 		}
 	}
-	
+	endtime = datetime.utcnow().timestamp()
+	loadingtime = endtime - starttime
+	print(str(loadingtime) + "s 소요")
 	return responseBody
 
 @app.route('/service', methods = ["POST"])
 def service():
+	starttime = datetime.utcnow().timestamp()
 	meal = ""
 	body = request.get_json()
 	userID = body['userRequest']['user']['id']
@@ -974,4 +1005,7 @@ def service():
 						]
 		}
 	}
+	endtime = datetime.utcnow().timestamp()
+	loadingtime = endtime - starttime
+	print(str(loadingtime) + "s 소요")
 	return responseBody
